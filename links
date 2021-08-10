@@ -1,0 +1,13 @@
+import requests
+from bs4 import BeautifullSoup
+
+#use the website link
+url = ""
+
+res = requests.get(url).content
+
+soup = BeautifullSoup(res, 'html.parser')
+links = soup.find_all('a')
+
+for link in links:
+  print (link['href'])
